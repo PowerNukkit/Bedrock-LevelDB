@@ -4,14 +4,87 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.iq80.leveldb</groupId>
+        <groupId>org.powernukkit.bedrock.leveldb</groupId>
         <artifactId>leveldb-project</artifactId>
-        <version>0.11-SNAPSHOT</version>
+        <version>0.11.0-PN</version>
     </parent>
 
-    <artifactId>leveldb</artifactId>
-    <name>${project.artifactId}</name>
-    <description>Port of LevelDB to Java</description>
+    <artifactId>bedrock-leveldb</artifactId>
+    
+    <name>Bedrock Edition LevelDB Implementation</name>
+    <description>Open Source implementation of the Minecraft Bedrock Edition LevelDB on Java</description>
+    <url>http://powernukkit.org</url>
+
+    <organization>
+        <name>PowerNukkit</name>
+        <url>https://github.com/PowerNukkit</url>
+    </organization>
+    <inceptionYear>2020</inceptionYear>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/PowerNukkit/Bedrock-LevelDB/issues</url>
+    </issueManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>powernukkit-releases</id>
+            <name>powernukkit-releases</name>
+            <url>https://api.bintray.com/maven/powernukkit/powernukkit/bedrock-leveldb</url>
+        </repository>
+        <snapshotRepository>
+            <id>powernukkit-snapshots</id>
+            <name>powernukkit-snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>dain</id>
+            <name>Dain Sundstrom</name>
+            <email>dain@iq80.com</email>
+        </developer>
+        <developer>
+            <id>chirino</id>
+            <name>Hiram Chirino</name>
+            <email>hiram@hiramchirino.com</email>
+            <url>http://hiramchirino.com</url>
+            <timezone>-5</timezone>
+        </developer>
+        <developer>
+            <id>joserobjr</id>
+            <name>José Roberto de Araújo Júnior</name>
+            <email>joserobjr@powernukkit.org</email>
+            <url>https://github.com/joserobjr</url>
+            <timezone>-3</timezone>
+            <organization>PowerNukkit</organization>
+            <organizationUrl>https://github.com/PowerNukkit</organizationUrl>
+            <roles>
+                <role>maintainer</role>
+            </roles>
+        </developer>
+        <developer>
+            <id>CloudburstMC</id>
+            <organization>CloudburstMC</organization>
+            <organizationUrl>https://github.com/CloudburstMC</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/PowerNukkit/Bedrock-LevelDB.git</connection>
+        <developerConnection>scm:git:git@github.com:PowerNukkit/Bedrock-LevelDB.git</developerConnection>
+        <url>http://github.com/PowerNukkit/Bedrock-LevelDB/tree/master</url>
+        <tag>v0.11.0-PN</tag>
+    </scm>
 
     <properties>
         <air.main.basedir>${project.parent.basedir}</air.main.basedir>
@@ -20,8 +93,8 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.iq80.leveldb</groupId>
-            <artifactId>leveldb-api</artifactId>
+            <groupId>org.powernukkit.bedrock.leveldb</groupId>
+            <artifactId>bedrock-leveldb-api</artifactId>
         </dependency>
 
         <dependency>
@@ -77,6 +150,12 @@
             <artifactId>leveldbjni</artifactId>
             <version>1.1</version>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.iq80.leveldb</groupId>
+                    <artifactId>leveldb-api</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>
